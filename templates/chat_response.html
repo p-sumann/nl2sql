@@ -1,0 +1,59 @@
+<div class="chat-response">
+    <div class="user-query message">
+        <strong>User Query:</strong> {{ text }}
+    </div>
+    <div class="sql-query message">
+        <strong>SQL Query:</strong> {{ sql }}
+    </div>
+    <div id="table-container">
+        {% if results %}
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in results[0].keys() %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in results %}
+                    <tr>
+                        {% for column in row.values() %}
+                        <td>{{ column }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="no-results">
+            No results found.
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Pagination -->
+    {% if total_pages > 1 %}
+    <div class="pagination">
+        {% if current_page > 1 %}
+        <a href="#" hx-post="/chat?page={{ current_page - 1 }}" hx-target="#table-container" hx-swap="innerHTML"
+            hx-include="#chat-form">Previous</a>
+        {% endif %}
+
+        {% for page in range(1, total_pages + 1) %}
+        <a href="#" hx-post="/chat?page={{ page }}" hx-target="#table-container" hx-swap="innerHTML"
+            hx-include="#chat-form">{{ page }}</a>
+        {% endfor %}
+
+        {% if current_page < total_pages %}
+        <a href="#" hx-post="/chat?page={{ current_page + 1 }}" hx-target="#table-container" hx-swap="innerHTML"
+            hx-include="#chat-form">Next</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+<script id="initial-results" type="application/json">
+    {{ results | tojson }}
+</script>
