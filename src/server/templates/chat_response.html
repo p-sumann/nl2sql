@@ -1,0 +1,43 @@
+<div class="chat-response">
+    <div class="user-query message">
+        <strong>User Query:</strong> {{ text }}
+    </div>
+    <div class="sql-query message">
+        <strong>SQL Query:</strong> {{ sql }}
+    </div>
+    <div id="table-container">
+        {% if results %}
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in results[0].keys() %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in results[:15] %}
+                    <tr>
+                        {% for column in row.values() %}
+                        <td>{{ column }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="no-results">
+            {% if error_message %}
+            <p>{{ error_message }}</p>
+            {% else %}
+            <p>No results found. Please try with different question.</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script id="initial-results" type="application/json">
+    {{ results | tojson }}
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Text2SQL</h1>
+        </header>
+
+        <div id="chat-area">
+            <div class="initial-message">
+                <p>Welcome to Text2SQL! Enter your query and press send.</p>
+            </div>
+        </div>
+        <form id="chat-form" hx-post="/chat" hx-target="#chat-area" hx-swap="innerHTML" hx-include="#chat-input">
+            <input type="text" id="chat-input" name="text" placeholder="Type your message here..." required>
+            <button type="submit">
+                Send
+                <div id="spinner" class="htmx-indicator"></div>
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>
