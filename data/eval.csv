@@ -1,0 +1,69 @@
+sql_query,result,description
+"SELECT a.airline, COUNT(*) AS total_flights
+FROM flights f
+JOIN airlines a ON f.airline = a.iata_code
+WHERE f.year = 2015
+GROUP BY a.airline
+ORDER BY total_flights DESC
+LIMIT 1;","'[\n    {\n        ""airline"": ""Southwest Airlines Co."",\n        ""total_flights"": 1026\n    }\n]'",Which airline operated the most flights in 2015?
+"SELECT COUNT(*) AS total_flights
+FROM flights
+WHERE origin_airport = 'DFW'
+  AND year = 2015;","'[\n {\n ""total_flights"": 191\n }\n]'",How many flights departed from Dallas/Fort Worth International Airport (DFW) in 2015?
+"SELECT *
+FROM airports
+WHERE state = 'CA';","'[\n {\n ""iata_code"": ""ACV"",\n ""airport"": ""Arcata Airport"",\n ""city"": ""Arcata/Eureka"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 40.98,\n ""longitude"": -124.11\n },\n {\n ""iata_code"": ""BFL"",\n ""airport"": ""Meadows Field"",\n ""city"": ""Bakersfield"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 35.43,\n ""longitude"": -119.06\n },\n {\n ""iata_code"": ""BUR"",\n ""airport"": ""Bob Hope Airport\\u00a0(Hollywood Burbank Airport)"",\n ""city"": ""Burbank"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 34.2,\n ""longitude"": -118.36\n },\n {\n ""iata_code"": ""CEC"",\n ""airport"": ""Del Norte County Airport\\u00a0(Jack McNamara Field)"",\n ""city"": ""Crescent City"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 41.78,\n ""longitude"": -124.24\n },\n {\n ""iata_code"": ""CLD"",\n ""airport"": ""McClellan-Palomar Airport"",\n ""city"": ""San Diego"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 33.13,\n ""longitude"": -117.28\n },\n {\n ""iata_code"": ""FAT"",\n ""airport"": ""Fresno Yosemite International Airport"",\n ""city"": ""Fresno"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 36.78,\n ""longitude"": -119.72\n },\n {\n ""iata_code"": ""LAX"",\n ""airport"": ""Los Angeles International Airport"",\n ""city"": ""Los Angeles"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 33.94,\n ""longitude"": -118.41\n },\n {\n ""iata_code"": ""LGB"",\n ""airport"": ""Long Beach Airport\\u00a0(Daugherty Field)"",\n ""city"": ""Long Beach"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 33.82,\n ""longitude"": -118.15\n },\n {\n ""iata_code"": ""MMH"",\n ""airport"": ""Mammoth Yosemite Airport"",\n ""city"": ""Mammoth Lakes"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 37.62,\n ""longitude"": -118.84\n },\n {\n ""iata_code"": ""MRY"",\n ""airport"": ""Monterey Regional Airport\\u00a0(Monterey Peninsula Airport)"",\n ""city"": ""Monterey"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 36.59,\n ""longitude"": -121.84\n },\n {\n ""iata_code"": ""OAK"",\n ""airport"": ""Oakland International Airport"",\n ""city"": ""Oakland"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 37.72,\n ""longitude"": -122.22\n },\n {\n ""iata_code"": ""ONT"",\n ""airport"": ""Ontario International Airport"",\n ""city"": ""Ontario"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 34.06,\n ""longitude"": -117.6\n },\n {\n ""iata_code"": ""PSP"",\n ""airport"": ""Palm Springs International Airport"",\n ""city"": ""Palm Springs"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 33.83,\n ""longitude"": -116.51\n },\n {\n ""iata_code"": ""RDD"",\n ""airport"": ""Redding Municipal Airport"",\n ""city"": ""Redding"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 40.51,\n ""longitude"": -122.29\n },\n {\n ""iata_code"": ""SAN"",\n ""airport"": ""San Diego International Airport\\u00a0(Lindbergh Field)"",\n ""city"": ""San Diego"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 32.73,\n ""longitude"": -117.19\n },\n {\n ""iata_code"": ""SBA"",\n ""airport"": ""Santa Barbara Municipal Airport\\u00a0(Santa Barbara Airport)"",\n ""city"": ""Santa Barbara"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 34.43,\n ""longitude"": -119.84\n },\n {\n ""iata_code"": ""SBP"",\n ""airport"": ""San Luis Obispo County Regional Airport\\u00a0(McChesney Field)"",\n ""city"": ""San Luis Obispo"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 35.24,\n ""longitude"": -120.64\n },\n {\n ""iata_code"": ""SFO"",\n ""airport"": ""San Francisco International Airport"",\n ""city"": ""San Francisco"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 37.62,\n ""longitude"": -122.37\n },\n {\n ""iata_code"": ""SJC"",\n ""airport"": ""Norman Y. Mineta San Jos\\u00e9 International Airport"",\n ""city"": ""San Jose"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 37.36,\n ""longitude"": -121.93\n },\n {\n ""iata_code"": ""SMF"",\n ""airport"": ""Sacramento International Airport"",\n ""city"": ""Sacramento"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 38.7,\n ""longitude"": -121.59\n },\n {\n ""iata_code"": ""SMX"",\n ""airport"": ""Santa Maria Public Airport\\u00a0(Capt G. Allan Hancock Field)"",\n ""city"": ""Santa Maria"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 34.9,\n ""longitude"": -120.46\n },\n {\n ""iata_code"": ""SNA"",\n ""airport"": ""John Wayne Airport\\u00a0(Orange County Airport)"",\n ""city"": ""Santa Ana"",\n ""state"": ""CA"",\n ""country"": ""USA"",\n ""latitude"": 33.68,\n ""longitude"": -117.87\n }\n]'",List all airports located in California.
+"SELECT AVG(departure_delay) AS avg_departure_delay
+FROM flights
+WHERE origin_airport = 'LAX'
+  AND year = 2015;","'[\n {\n ""avg_departure_delay"": 10.61\n }\n]'",What is the average departure delay for flights departing from Los Angeles International Airport (LAX) in 2015?
+"SELECT COUNT(*) AS cancelled_flights
+FROM flights
+WHERE cancelled = 1
+  AND year = 2015;","'[\n {\n ""cancelled_flights"": 63\n }\n]'",How many flights were cancelled in 2015?
+"SELECT a.airline,
+       ROUND(100.0 * SUM(CASE WHEN departure_delay <= 15 THEN 1 ELSE 0 END) / COUNT(*), 2) AS on_time_percentage
+FROM flights f
+JOIN airlines a ON f.airline = a.iata_code
+WHERE f.year = 2015
+GROUP BY a.airline
+ORDER BY on_time_percentage DESC
+LIMIT 1;","[\n {\n ""airline"": ""Hawaiian Airlines Inc."",\n ""on_time_percentage"": 90.63\n }\n]'",Which airline had the highest on-time departure rate in 2015 (considering flights with a departure delay of 15 minutes or less as on time)?
+"SELECT destination_airport, COUNT(*) AS flight_count
+FROM flights
+WHERE origin_airport = 'JFK'
+  AND year = 2015
+GROUP BY destination_airport
+ORDER BY flight_count DESC
+LIMIT 1;","'[\n {\n ""destination_airport"": ""SFO"",\n ""flight_count"": 10\n }\n]'",Which destination airport received the most flights from John F. Kennedy International Airport (JFK) in 2015?
+"SELECT a.airline, AVG(arrival_delay) AS avg_arrival_delay
+FROM flights f
+JOIN airlines a ON f.airline = a.iata_code
+WHERE f.year = 2015
+GROUP BY a.airline
+ORDER BY avg_arrival_delay DESC
+LIMIT 5;","'[\n {\n ""airline"": ""Frontier Airlines Inc."",\n ""avg_arrival_delay"": 15.56\n },\n {\n ""airline"": ""Spirit Air Lines"",\n ""avg_arrival_delay"": 8.0\n },\n {\n ""airline"": ""JetBlue Airways"",\n ""avg_arrival_delay"": 7.84\n },\n {\n ""airline"": ""Atlantic Southeast Airlines"",\n ""avg_arrival_delay"": 7.54\n },\n {\n ""airline"": ""US Airways Inc."",\n ""avg_arrival_delay"": 7.43\n }\n]'",List the top 5 airlines with the highest average arrival delay in 2015.
+"SELECT COUNT(*) AS diverted_flights
+FROM flights
+WHERE diverted = 1
+  AND year = 2015;","'[\n {\n ""diverted_flights"": 8\n }\n]'",How many flights were diverted in 2015?
+"SELECT origin_airport, COUNT(*) AS departure_count
+FROM flights
+WHERE year = 2015
+GROUP BY origin_airport
+ORDER BY departure_count DESC
+LIMIT 1;","'[\n {\n ""origin_airport"": ""ATL"",\n ""departure_count"": 280\n }\n]'",Which airport had the most departures in 2015?
+"SELECT a.airline, COUNT(*) AS cancellations
+FROM flights f
+JOIN airlines a ON f.airline = a.iata_code
+WHERE cancelled = 1
+  AND f.year = 2015
+GROUP BY a.airline
+ORDER BY cancellations DESC
+LIMIT 1;","'[\n {\n ""airline"": ""Atlantic Southeast Airlines"",\n ""cancellations"": 18\n }\n]'",Which airline had the most cancellations in 2015?
+"SELECT a.airline, COUNT(*) AS total_flights, AVG(distance) AS avg_distance
+FROM flights f
+JOIN airlines a ON f.airline = a.iata_code
+WHERE f.year = 2015
+GROUP BY a.airline
+ORDER BY a.airline;","'[\n {\n ""airline"": ""Alaska Airlines Inc."",\n ""total_flights"": 167,\n ""avg_distance"": 1258.01\n },\n {\n ""airline"": ""American Airlines Inc."",\n ""total_flights"": 632,\n ""avg_distance"": 1035.42\n },\n {\n ""airline"": ""American Eagle Airlines Inc."",\n ""total_flights"": 260,\n ""avg_distance"": 433.22\n },\n {\n ""airline"": ""Atlantic Southeast Airlines"",\n ""total_flights"": 512,\n ""avg_distance"": 453.05\n },\n {\n ""airline"": ""Delta Air Lines Inc."",\n ""total_flights"": 747,\n ""avg_distance"": 852.72\n },\n {\n ""airline"": ""Frontier Airlines Inc."",\n ""total_flights"": 66,\n ""avg_distance"": 979.48\n },\n {\n ""airline"": ""Hawaiian Airlines Inc."",\n ""total_flights"": 64,\n ""avg_distance"": 664.92\n },\n {\n ""airline"": ""JetBlue Airways"",\n ""total_flights"": 235,\n ""avg_distance"": 1041.18\n },\n {\n ""airline"": ""Skywest Airlines Inc."",\n ""total_flights"": 548,\n ""avg_distance"": 531.32\n },\n {\n ""airline"": ""Southwest Airlines Co."",\n ""total_flights"": 1026,\n ""avg_distance"": 742.76\n },\n {\n ""airline"": ""Spirit Air Lines"",\n ""total_flights"": 82,\n ""avg_distance"": 1090.78\n },\n {\n ""airline"": ""US Airways Inc."",\n ""total_flights"": 147,\n ""avg_distance"": 941.25\n },\n {\n ""airline"": ""United Air Lines Inc."",\n ""total_flights"": 461,\n ""avg_distance"": 1317.01\n },\n {\n ""airline"": ""Virgin America"",\n ""total_flights"": 53,\n ""avg_distance"": 1318.15\n }\n]'","For each airline, what was the total number of flights and the average distance flown in 2015?"
