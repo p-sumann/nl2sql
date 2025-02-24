@@ -11,3 +11,4 @@ pytest-asyncio
 sqlmodel
 pytest-mock
 httpx
+psycopg2
