@@ -7,3 +7,7 @@ jinja2
 python-multipart
 google-generativeai
 markdown2
+pytest-asyncio
+sqlmodel
+pytest-mock
+httpx
