@@ -20,14 +20,17 @@ def load_data():
 
         # Load airlines data
         airlines_df = pd.read_csv("data/airlines.csv")
+        airlines_df.columns = airlines_df.columns.str.lower()
         airlines_df.to_sql("airlines", engine, if_exists="replace", index=False)
 
         # Load airports data
         airports_df = pd.read_csv("data/airports.csv")
+        airports_df.columns = airports_df.columns.str.lower()
         airports_df.to_sql("airports", engine, if_exists="replace", index=False)
 
         # Load flights data
         flights_df = pd.read_csv("data/flights.csv")
+        flights_df.columns = flights_df.columns.str.lower()
         flights_df.to_sql("flights", engine, if_exists="replace", index=False)
 
         print("Data loaded successfully!")
