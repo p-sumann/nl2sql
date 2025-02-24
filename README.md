@@ -96,7 +96,7 @@ For, this demo purpose, the default user and password is used, for production us
 3.  **Create database tables:**
 
     ```bash
-    cd .. ..
+    cd ../..
     python src/db/create_table.py
     ```
 
