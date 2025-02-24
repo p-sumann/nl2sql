@@ -167,7 +167,6 @@ Frontend templates:
 .
 ├── .env
 ├── .gitignore
-├── Dockerfile
 ├── README.md
 ├── requirements.txt
 ├── data
