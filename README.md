@@ -121,58 +121,98 @@ For, this demo purpose, the default user and password is used, for production us
     - View generated SQL queries and results
 
 ## Project Structure
+### Root Directory
+- `.env`: Environment variables configuration
+- `.gitignore`: Git ignore file
+- `Dockerfile`: Docker container configuration
+- `requirements.txt`: Python dependencies
+
+### Data (/data)
+Contains CSV files with flight-related information:
+- `airlines.csv`: Airline company data
+- `airports.csv`: Airport information
+- `flights.csv`: Flight records
+- `eval.csv`: Evaluation dataset
+
+### Notebooks (/notebooks)
+Jupyter notebooks for development and testing:
+- `airline_dataset.ipynb`: Dataset analysis
+- `eval.ipynb`: Evaluation scripts
+- `initial_exp.ipynb`: Initial experiments
+- `llm_retrying.ipynb`: LLM retry logic tests
+
+### Source Code (/src)
+Main application code:
+- `config/`: Configuration settings
+- `db/`: Database operations and initialization
+- `server/`: Web server implementation
+    - `core/llm.py`: LLM integration
+    - `templates/`: Server-side templates
+- `static/`: CSS styles
+- `tests/`: Unit and integration tests
+- `utils/`: Utility functions
+    - `common_utils.py`: Common helper functions
+    - `database_utils.py`: Database utilities
+    - `prompts.py`: LLM prompt templates
+
+### Templates
+Frontend templates:
+- `chat_response.html`: Chat interface
+- `index.html`: Main page
+- `static/style.css`: CSS styling
+
+## Project Tree
 
 ```
 .
 ├── .env
 ├── .gitignore
 ├── Dockerfile
-├── [README.md]
-├── [requirements.txt]
+├── README.md
+├── requirements.txt
 ├── data
 │   ├── airlines.csv
 │   ├── airports.csv
 │   ├── eval.csv
 │   └── flights.csv
-├── docs
 ├── notebooks
 │   ├── airline_dataset.ipynb
-│   ├── [data.ipynb]
-│   ├── data_engineering.ipynb
-│   ├── [eval.ipynb]37
-│   ├── exp copy.ipynb
-│   ├── [exp.ipynb]
-│   ├── [llm_evaluation.ipynb]
-│   └── [llm_retrying.ipynb]
-├── package.json
+│   ├── eval.ipynb
+│   ├── initial_exp.ipynb
+│   └── llm_retrying.ipynb
 ├── src
-│   ├── [__init__.py]
-│   ├── config
-│   │   ├── [__init__.py]
+│   ├── __init__.py
+│   ├── config                          #config module
+│   │   ├── __init__.py
 │   │   └── config.py
-│   ├── db
-│   │   ├── [__init__.py]
+│   ├── db                              #database module
+│   │   ├── __init__.py
 │   │   └── database.py
-│   ├── server
-│   │   ├── [__init__.py]
-│   │   ├── [app.py]
+│   │   └── create_table.py
+│   │   └── database.py
+│   │   └── load_data.py
+│   │   └── init.sh
+│   ├── server                          #core fastapi app
+│   │   ├── __init__.py
+│   │   ├── app.py
 │   │   ├── core
 │   │   │   └── llm.py
 │   │   └── templates
-│   ├── static
-│   │   └── [style.css]
-│   ├── tests
-│   └── utils
-│       ├── [__init__.py]
+│   ├── tests                           #tests modules
+│   │   ├── __init__.py
+│   │   └── conftest.py
+│   │   └── test_database.py
+│   │   └── test_query.py
+│   └── utils                           #utility module
+│       ├── __init__.py
 │       ├── common_utils.py
 │       ├── database_utils.py
 │       └── prompts.py
-└── templates
-├── css
+└── templates                           #html  templates
+│   └── chat_response.html
+│   └── index.html
+├── static                              #UI styling
 │   └── style.css
-└── html
-    ├── index.html
-    └── chat_response.html
 ```
 
 
