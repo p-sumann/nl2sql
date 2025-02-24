@@ -1,12 +1,20 @@
 from typing import TypedDict
+import os
+import sys
 
 import google.generativeai as genai
 
 from src.utils.prompts import sql_generation_system_prompt
+from src.config.config import GOOGLE_API_KEY
+
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
 
 class SQL(TypedDict):
     results: str
+
+
+genai.configure(api_key=GOOGLE_API_KEY)
 
 
 class GenerativeModelWrapper:
