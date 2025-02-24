@@ -2,7 +2,7 @@ import os
 
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 # Environment variables
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
