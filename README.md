@@ -46,36 +46,11 @@
     pip install -r requirements.txt
     ```
 
-## Database Setup
-
-For, this demo purpose, the default user and password is used, for production use, use safe values and use environment variables in bash script.
-
-1.  **Install and Initialize the database:**
-
-    ```bash
-    # Run the database initialization script
-    cd src/db
-    chmod +x init.sh
-    ./init.sh
-    ```
-
-3.  **Create database tables:**
-
-    ```bash
-    python src/db/create_table.py
-    ```
-
-4.  **Load sample data:**
-
-    ```bash
-    python src/db/load_data.py
-    ```
-
 ## Configuration
 
 1.  **Create environment file:**
 
-    Create a `.env` file in the project root with the following variables: sample keys used in this projectchat_response are provided except for Google.
+    Create a `.env` file in the project root with the following variables: sample keys used in this project are provided except for Google.
 
     ```bash
     touch .env
@@ -102,6 +77,34 @@ For, this demo purpose, the default user and password is used, for production us
     - Connection settings are managed through environment variables
     - Default database name: `text2sql`
     - Default user: `postgres`
+
+
+
+## Database Setup
+
+For, this demo purpose, the default user and password is used, for production use, use safe values and use environment variables in bash script.
+
+1.  **Install and Initialize the database:**
+
+    ```bash
+    # Run the database initialization script
+    cd src/db
+    chmod +x init.sh
+    ./init.sh
+    ```
+
+3.  **Create database tables:**
+
+    ```bash
+    cd .. ..
+    python src/db/create_table.py
+    ```
+
+4.  **Load sample data:**
+
+    ```bash
+    python src/db/load_data.py
+    ```
 
 ## Running the Application
 
