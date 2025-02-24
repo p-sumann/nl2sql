@@ -75,8 +75,7 @@ For, this demo purpose, the default user and password is used, for production us
 
 1.  **Create environment file:**
 
-    Create a `.env` file in the project root with the following variables:
-
+    Create a `.env` file in the project root with the following variables: sample keys used in this projectchat_response are provided except for Google.
 
     ```bash
     touch .env
@@ -84,12 +83,12 @@ For, this demo purpose, the default user and password is used, for production us
 
     ```
     GOOGLE_API_KEY=<your_google_api_key>
-    DB_PASS=postgres
-    DATABASE=text2sql
-    USER=postgres
-    HOST=localhost
-    DATABASE_CLIENT=postgresql
-    PORT=5432
+    DB_PASS=<your pass> #postgres
+    DATABASE=<your db> #text2sql
+    USER=<your user> #postgres
+    HOST=<your host> #localhost
+    DATABASE_CLIENT=<your db client> #postgresql
+    PORT=<your port> #5432
     ```
 
 2.  **LLM Configuration:**
@@ -170,7 +169,7 @@ For, this demo purpose, the default user and password is used, for production us
 │   └── style.css
 └── html
     ├── index.html
-    └── error.html
+    └── chat_response.html
 ```
 
 
