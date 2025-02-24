@@ -74,6 +74,7 @@ async def generate_and_execute_with_retries(user_query: str) -> Tuple[str, Dict]
     while attempt < max_attempts:
         attempt += 1
         try:
+            logger.info("Generating SQL")
             if attempt == 1:
                 generated_sql = await generate_sql(user_query, llm)
             else:
@@ -83,7 +84,7 @@ async def generate_and_execute_with_retries(user_query: str) -> Tuple[str, Dict]
                     error_message=error_message,
                 )
                 generated_sql = await generate_sql(user_query, llm, prompt)
-
+            logger.info("Executing SQL")
             results = db_connector.execute_query(generated_sql)
             logger.info(f"Attempt {attempt}: Query executed successfully.")
             return generated_sql, results
@@ -107,7 +108,7 @@ async def read_root(request: Request):
 
 
 @app.post("/chat", response_class=HTMLResponse)
-async def chat(request: Request, text: str = Form(...), page: int = 1):
+async def chat(request: Request, text: str = Form(...)):
     """Handles chat requests, generates SQL, executes it, and returns the results."""
     try:
         user_query = text
@@ -122,6 +123,8 @@ async def chat(request: Request, text: str = Form(...), page: int = 1):
                     "sql": "No query entered.",
                 },
             )
+        logger.info(f"User Query: {user_query}")
+        logger.info("Invoking LLM")
 
         sql, results = await generate_and_execute_with_retries(user_query)
 
@@ -170,8 +173,6 @@ async def chat(request: Request, text: str = Form(...), page: int = 1):
                 "results": [],
                 "text": text,
                 "sql": "",
-                "current_page": 1,
-                "total_pages": 1,
                 "error_message": error_message,
             },
         )
